@@ -593,4 +593,12 @@ module.exports = {
     paddingLeft: 15,
     paddingRight: 15
   },
+  searchBar:{
+    height: 40,
+    margin: 5,
+    borderStyle: 'solid',
+    borderWidth: 2,
+    borderColor: '#000',
+    borderRadius: 5
+  }
 }

@@ -5,12 +5,13 @@ export default ((props) => {
   const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 })
   const Row = props.listviewRow
   const dataSource = props.data
+  const { handleRowClick } = props
   const empty = () => {}
 
   const renderList = (
     <ListView
         dataSource = {ds.cloneWithRows(dataSource)}
-        renderRow={(rowData) => <Row rowData={rowData} navigator={props.navigator} />}
+        renderRow={(rowData, sectionId, rowId) => <Row rowData={rowData} sectionId={sectionId} rowId={rowId} navigator={props.navigator} handleRowClick={handleRowClick} />}
         enableEmptySections={true}
      />
   )

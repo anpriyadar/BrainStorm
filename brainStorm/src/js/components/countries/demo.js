@@ -12,20 +12,17 @@ import {
   View
 } from 'react-native';
 
+import FlagWall from '../../../asset/flagbanner.js'
+
 export default class demo extends Component {
+  constructor(props) {
+  super(props)
+}
   render() {
+    const { detailsProps } = this.props
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+      <FlagWall code={detailsProps.data.alpha2Code}/>
       </View>
     );
   }

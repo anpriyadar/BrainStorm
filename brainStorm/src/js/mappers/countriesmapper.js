@@ -11,6 +11,6 @@ return CountryURL.then((json) => json.data)
       )
   }
   return {
-    getCountryDetails,
+    getCountryDetails
   }
 })()

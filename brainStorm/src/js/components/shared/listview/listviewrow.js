@@ -11,25 +11,16 @@ import Flag from '../countries/flag.js'
 const s = StyleSheet.create(componentStyles)
 
 
-export default class hello extends Component {
+export default class CountriesRow extends Component {
   constructor(props) {
   super(props)
-
   }
 
-  onPushPress() {
-    const {navigator}= this.props
-  navigator.push({
-    title: "Country Details",
-    screen: "brainStorm.SecondScreen"
-  });
-}
-
   render() {
-    const {  rowData } = this.props
+    const {rowData,handleRowClick} = this.props
     return (
       <TouchableWithoutFeedback  onPress={() => {
-       this.onPushPress()
+       handleRowClick(rowData)
       }} >
       <View style={[s.flexFull]}>
         <View style={[s.flexRow, s.alignItemsCenter, s.borderBottomGreyThin]}>
