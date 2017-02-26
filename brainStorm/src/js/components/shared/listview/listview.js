@@ -10,7 +10,7 @@ export default ((props) => {
   const renderList = (
     <ListView
         dataSource = {ds.cloneWithRows(dataSource)}
-        renderRow={(rowData) => <Row rowData={rowData} />}
+        renderRow={(rowData) => <Row rowData={rowData} navigator={props.navigator} />}
         enableEmptySections={true}
      />
   )
