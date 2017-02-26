@@ -23,6 +23,8 @@ export default class Countries extends Component {
     const { navigator } = this.props
 
     navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    this.handleRowClick = this.handleRowClick.bind(this)
+
 
 }
 static navigatorButtons = {
@@ -37,6 +39,18 @@ static navigatorButtons = {
     }
   ]
 };
+
+handleRowClick(data) {
+  const { navigator } = this.props
+  const detailsProps = { data }
+  const screentitle= detailsProps.data.name
+  navigator.push({
+    title: screentitle,
+    screen: "brainStorm.SecondScreen",
+    passProps:{ detailsProps:detailsProps}
+  });
+  }
+
 
 onNavigatorEvent(event) {
   if (event.id === 'edit') {
@@ -64,6 +78,7 @@ showListView()
     <Listview
         data = {dataSource}
         navigator={navigator}
+        handleRowClick={this.handleRowClick}
         listviewRow = {ListviewRow}/>
   )
 }
