@@ -170,7 +170,7 @@ module.exports = {
     marginRight: 60
   },
   sideMarginLg: {
-    marginLeft: 30,
+    marginLeft: 40,
     marginRight: 40
   },
   sideMarginLeftXXLg: {
@@ -426,6 +426,9 @@ module.exports = {
   },
   backgroundBrandDeselect: {
     backgroundColor: '#FFFF00'
+  },
+  backgroundBrandDIndigo: {
+    backgroundColor: '#3964C3'
   },
   backgroundSuccess: {
     backgroundColor: 'rgb(76, 176, 64)',

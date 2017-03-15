@@ -21,7 +21,6 @@ const s = StyleSheet.create(componentStyles)
 
 export default class Countries extends Component {
   constructor(props) {
-
   super(props)
   this.state = {
       data: [],
@@ -48,18 +47,33 @@ static navigatorButtons = {
       title: 'Reload',
       id: 'reload'
     },
+  ],
+  leftButtons:[
+    {
+      title: 'Login',
+      id: 'login'
+    },
+
   ]
 };
 
 onNavigatorEvent(event) {
+  const { navigator } = this.props
   const rawdata=this.state.data
   const reload=this.state.reload
   const dataSource = rawdata.map((item) =>item)
   if (event.id === 'reload' && reload===true) {
   RNRestart.Restart()
   }
-  else{
+  else if (event.id === 'reload'){
     alert('Reload can be only performed after search')
+  }
+  else if(event.id === 'login'){
+    navigator.push({
+      title: 'Login',
+      screen: "brainStorm.LoginScreen",
+    });
+
   }
 }
 
@@ -86,11 +100,15 @@ this.setState({
 data: newData,
 reload:true
 })
+
+if(text==='')
+{
+  RNRestart.Restart()
+}
 }
 
 showListView()
 {
-  const { navigator } = this.props
  const rawdata=this.state.data
  const dataSource = rawdata.map((item) =>item)
  const SearchText= this.state.text
@@ -105,7 +123,6 @@ showListView()
       />
     <Listview
         data = {dataSource}
-        navigator={navigator}
         handleRowClick={this.handleRowClick}
         listviewRow = {ListviewRow}/>
       </View>
