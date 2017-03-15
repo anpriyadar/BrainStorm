@@ -11,7 +11,7 @@ export default ((props) => {
   const renderList = (
     <ListView
         dataSource = {ds.cloneWithRows(dataSource)}
-        renderRow={(rowData, sectionId, rowId) => <Row rowData={rowData} sectionId={sectionId} rowId={rowId} navigator={props.navigator} handleRowClick={handleRowClick} />}
+        renderRow={(rowData, sectionId, rowId) => <Row rowData={rowData}  handleRowClick={handleRowClick} />}
         enableEmptySections={true}
      />
   )
